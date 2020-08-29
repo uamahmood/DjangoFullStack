@@ -1,0 +1,34 @@
+.delete-custom {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.edit-custom {
+    margin-left: 10px;
+}
+
+.nav-style {
+    font-size: 17px;
+}
+
+.top {
+    display: inline-block;
+}
+
+.resize {
+    resize: none;
+}
+
+.title {
+    font-size: 18px;
+}
+
+.tv-show-font {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.tv-show-title {
+    font-size: 18px;
+    font-weight: 300;
+}

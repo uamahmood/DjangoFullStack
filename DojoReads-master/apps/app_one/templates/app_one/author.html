@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Reads</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "app_one/css/index.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body class="bodyStyle">
+        <div class="container">
+                <div class="navigation">
+                    <a href="/books">Home</a> | <a href="/books/add">Add Book and Review</a> | <a href="/logout">Logout</a>
+                </div>
+                <div class="row">
+                    <div class="col spotlight">
+                        <h5>Name: {{author.name}}</h5>
+                        <p>Total Books: {{book_total}}
+                        </p>
+                    </div>
+                    <div class="col reviewBox">
+                        <p>Author's Books:</p>
+                        <ul>
+                            {% for book in books%}
+                            <li><a href="/books/{{book.id}}">{{book.title}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                
+                <br>
+               
+            </div>
+</body>
+</html>

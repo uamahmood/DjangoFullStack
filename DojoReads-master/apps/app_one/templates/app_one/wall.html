@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Books Home</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static "app_one/css/index.css" %}">
+    <style>
+        .stars{
+            width:200px;
+        }
+    </style>
+</head>
+<body class="bodyStyle">
+    <div class="container">
+        <div class="row">
+            <div class="col ">
+                <h4>Welcome, {{profile.alias}}</h4>
+                <p></p>
+                <p></p>
+                <h6>Recent Book Reviews:</h6>
+                <hr>
+                {% for review in reviews|slice:":3" %}
+                <div class=reviewBox>
+                    <h5><a href="books/{{review.subject.id}}">{{review.subject.title}}</a></h5>
+                    {% load static %}
+                    <p>Rating: <img class="stars" src='/static/app_one/images/{{review.rating}}.png'></p>
+                    <p><a href="users/{{review.poster.id}}">{{review.poster.alias}}</a> says: 
+                    
+                    <span class="font-italic">{{review.review}}</span>
+                    </p>
+                    <p>{{review.created_at}}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col">
+                <span class="col-span col-right"><a href="books/add">Add Book and Review</a> | <a href="logout">Logout</a></span>
+                <p></p>
+                <p></p>
+                <h6>Books with Reviews:</h6>
+                <hr>
+                <div class="booklist reviewBox">
+                    {% for book in books %}
+                        <p><a href="books/{{book.id}}">{{book.title}}</a></p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

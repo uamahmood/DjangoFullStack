@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "app_one/css/index.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="bodyStyle">
+    <div class="container">
+        <div class="navigation">
+            <a href="/books">Home</a> | <a href="/books/add">Add Book and Review</a> | <a href="/logout">Logout</a>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h5>User Alias: {{profile.alias}}</h5>
+                <p>Name: {{profile.name}}</p>
+                <p>Email: {{profile.email}}</p>
+                <p>Total Reviews: {{review_total}}
+                </p>
+            </div>
+            <div class="col">
+                <p>Posted Reviews on the following books:</p>
+                <ul>
+                    {% for review in reviews %}
+                    <li><a href="/books/{{review.subject.id}}">{{review.subject.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <br>
+       
+    </div>
+</body>
+</html>

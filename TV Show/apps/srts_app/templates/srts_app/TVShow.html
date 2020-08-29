@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="A really cool site!">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'srts_app/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'srts_app/css/custom-bootstrap.css' %}">
+    <script src="{% static 'srts_app/js/script.js' %}"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <img src="{% static 'srts_app/images/coding_dojo_logo.png' %}" />
+        <h1 class="navbar-brand">Coding Dojo: <span class="text-primary">TV Show</span></h1>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <h1 class="text-left">TV Show: {{ show.id }} - {{ show.title }}</h1>
+            </div>
+            <div class="offsest-md-5">
+                <a href="/shows" class="top nav-style btn btn-outline-primary">&#8249;&nbsp;&nbsp;Go Back</a>
+            </div>
+        </div>
+
+        <div class="row text-left mt-5">
+            <form action="/shows/{{ show.id }}" method="POST">
+                {% csrf_token %}
+                <p><label><span class="tv-show-font">Title:</span><span class="tv-show-title"> {{ show.title }}</span></label></p>
+                <p><label><span class="tv-show-font">Network:</span><span class="tv-show-title"> {{ show.network }}</span></label></p>
+                <p><label><span class="tv-show-font">Release Date:</span><span class="tv-show-title"> {{ show.release_date }} </span></label></p>
+                <p><label><span class="tv-show-font">Description:</span> <span class="tv-show-title"> {{ show.description }}</span></label></p>
+                <p class="mt-5"><label><span class="tv-show-font">Last Updated:</span><span class="tv-show-title"> {{show.updated_at}}</span></p>
+                <div class="row form-group text-left mt-4">
+                    <a href="/shows/{{ show.id }}/edit" class="btn btn-primary pl-3 pr-3 m-2" role="button">Edit</a>
+                    <a href="/shows/{{ show.id }}/destroy" class="btn btn-outline-danger pl-3 pr-3 m-2">Delete</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

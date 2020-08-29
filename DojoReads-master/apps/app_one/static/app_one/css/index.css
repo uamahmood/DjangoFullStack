@@ -1,0 +1,41 @@
+.bodyStyle{
+    background-color: aliceblue;
+    padding-top: 45px;
+}
+.headline{
+    text-align: center;
+}
+.navigation{
+    margin-bottom: 30px;
+    background-color: azure;
+    max-height: 45px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+    border: solid 2px lightslategray;
+    box-shadow: 3px 3px lightblue;
+    border-radius: 15px;
+}
+.booklist{
+    max-height: 500px;
+    overflow: scroll;
+}
+.reviewBox{
+    border: solid 2px lightslategray;
+    box-shadow: 3px 3px lightblue;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 15px;
+    /* background-color: lightgray; */
+    background-image: radial-gradient(white 35%, lightgray)
+}
+.spotlight{
+    border: solid 2px lightslategray;
+    box-shadow: 3px 3px lightblue;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-right: 20px;
+    /* background-color: lightgray; */
+    background-image: radial-gradient(white , rgb(113, 189, 185))  
+}
